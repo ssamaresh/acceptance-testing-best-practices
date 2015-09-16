@@ -25,11 +25,12 @@ describe('Accounts Page', function() {
 
             expect(currentUrl).to.equal('http://localhost:3000/settings/accounts');
             
+             // Given an account called "cash"
             accountsPage.createAccount('cash');
 
         });
 
-        // Check if account exists after creation
+        // Then the accounts page should show an account called "cash"
         accountsPage.doesAccountExist('cash').then(function(exists) {
             
             expect(exists).to.be.true;

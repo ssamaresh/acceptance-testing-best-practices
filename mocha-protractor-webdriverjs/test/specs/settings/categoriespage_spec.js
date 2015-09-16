@@ -25,11 +25,12 @@ describe('Categories Page', function() {
 
             expect(currentUrl).to.equal('http://localhost:3000/settings/categories');
             
+            // Given a category called "Shopping"
             categoriesPage.createCategory('Shopping');
 
         });
 
-        // Check if account exists after creation
+        // Then the categories page should show an account called "Shopping"
         categoriesPage.doesCategoryExist('Shopping').then(function(exists) {
             
             expect(exists).to.be.true;
@@ -42,15 +43,15 @@ describe('Categories Page', function() {
 
         browser.waitForAngular();
 
-        // Given an account called "BofA Checking"
+        // Given a category called "Shopping"
         categoriesPage.createCategory('Shopping');
 
-        // When I change the account name to "Bank of America Checking"
+        // When I change the category name to "General Shopping"
         categoriesPage.changeCategoryName('Shopping', 'General Shopping');
 
         browser.waitForAngular();
         
-        // Then the accounts page should show an account called "Bank of America Checking"
+        // Then the categories page should show an account called "General Shopping"
         categoriesPage.doesCategoryExist('General Shopping').then(function(exists) {
             
             expect(exists).to.be.true;
