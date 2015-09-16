@@ -1,0 +1,20 @@
+{
+  "name": "mocha-protractor-webdriverjs",
+  "description": "mocha-protactor-webdriverjs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/archfirst/acceptance-testing-best-practices.git"
+  },
+  "devDependencies": {
+    "protractor": "~2.2.0",
+    "mocha": "~2.3.0",
+    "chai": "~3.2.0",
+    "chai-as-promised": "~5.1.0",
+    "expect.js": "~0.3.1",
+    "chai-datetime": "~1.4.0",
+    "chai-stats": "~0.3.0",
+    "knex": "~0.8.6",
+    "pg": "~4.4.1"
+  }
+}
