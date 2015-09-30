@@ -11,10 +11,12 @@ var CategoriesPage = function() {
 
 CategoriesPage.prototype.go = function() {
 	return browser
-		.get(this.url);
+		.get(this.url, 20000);
 }
 
 CategoriesPage.prototype.createCategory = function(categoriesName) {
+		
+		this.go();
 		
 		this.categoriesName.clear();
 		
@@ -25,6 +27,8 @@ CategoriesPage.prototype.createCategory = function(categoriesName) {
 };
 
 CategoriesPage.prototype.changeCategoryName = function(currentName, newName) {
+
+	this.go();
 
 	var categoryRow = element(by.cssContainingText('.categoryView', currentName));
 
@@ -45,7 +49,9 @@ CategoriesPage.prototype.changeCategoryName = function(currentName, newName) {
 };
 
 CategoriesPage.prototype.doesCategoryExist = function(categoryName) {
-	 
+
+	this.go();
+
  	return element.all(by.cssContainingText('.categoryView', categoryName)).then(function(name) {
 		
 		if(name.length != 0) {

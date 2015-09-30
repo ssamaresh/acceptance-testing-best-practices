@@ -5,21 +5,21 @@ exports.config = {
 
   baseUrl: 'http://localhost:3000',
 
-  // Capabilities to be passed to the webdriver instance.
   capabilities: {
     'browserName': 'chrome'
   },
 
-  // Framework to use. Jasmine 2 is recommended.
   framework: 'mocha',
 
-  // Spec patterns are relative to the current working directly when
-  // protractor is called.
-  specs: ['./specs/**/*.js'],
+  suites: {
+    all: ['./specs/**/*.js'],
+    home: ['./specs/hooks.spec.js', './specs/home.page.js'],
+    settings: ['./specs/hooks.spec.js', './specs/settings/*.js'],
+    transactions: ['./specs/hooks.spec.js', './specs/transactions/*.js'],
+    dashboard: ['./specs/hooks.spec.js', './specs/dashboard/*.js']
+  },
 
-  // Options to be passed to Jasmine.
-  jasmineNodeOpts: {
-    defaultTimeoutInterval: 30000
-  }
-  
+  getPageTimeout: 30000,
+  allScriptsTimeout: 30000
+
 };

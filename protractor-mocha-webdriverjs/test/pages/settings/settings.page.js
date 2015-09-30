@@ -22,4 +22,6 @@ SettingsPage.prototype.getCategoriesTab = function() {
 };
 
 
+
+
 module.exports = SettingsPage;

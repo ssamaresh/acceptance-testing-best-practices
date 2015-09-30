@@ -11,10 +11,12 @@ var AccountsPage = function() {
 
 AccountsPage.prototype.go = function() {
 	return browser
-		.get(this.url);
-}
+		.get(this.url, 20000);
+};
 
 AccountsPage.prototype.createAccount = function(accountName) {
+		
+		this.go();
 		
 		this.accountName.clear();
 		
@@ -25,6 +27,8 @@ AccountsPage.prototype.createAccount = function(accountName) {
 };
 
 AccountsPage.prototype.changeAccountName = function(currentName, newName) {
+
+	this.go();
 
 	var accountRow = element(by.cssContainingText('.accountView', currentName));
 
@@ -45,14 +49,12 @@ AccountsPage.prototype.changeAccountName = function(currentName, newName) {
 };
 
 AccountsPage.prototype.doesAccountExist = function(accountName) {
+
+	this.go();
 	 
  	return element.all(by.cssContainingText('.accountView', accountName)).then(function(name) {
 		
-		if(name.length != 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return name.length > 0;
 
 	});
 

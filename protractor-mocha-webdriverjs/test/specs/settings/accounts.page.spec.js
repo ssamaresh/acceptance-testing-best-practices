@@ -2,7 +2,7 @@
 'use strict';
 
 var expect = require('../chai-helpers').expect;
-var AccountsPage = require('../../pages/settings/accountsPage');
+var AccountsPage = require('../../pages/settings/accounts.page');
 
 
 // Account Creation
@@ -17,18 +17,22 @@ describe('Accounts Page', function() {
     
     })
 
+    it('Should go to the accounts page', function() {
+
+        browser.getCurrentUrl().then(function(currentUrl) {
+            
+            expect(currentUrl).to.equal('http://localhost:3000/settings/accounts');
+        
+        })
+
+    })
+
     it('Should allow the creation of an account', function() {
         
         browser.waitForAngular();
-        
-        browser.getCurrentUrl().then(function(currentUrl) {
-
-            expect(currentUrl).to.equal('http://localhost:3000/settings/accounts');
-            
-             // Given an account called "cash"
-            accountsPage.createAccount('cash');
-
-        });
+                    
+        // Given an account called "cash"
+        accountsPage.createAccount('cash');
 
         // Then the accounts page should show an account called "cash"
         accountsPage.doesAccountExist('cash').then(function(exists) {

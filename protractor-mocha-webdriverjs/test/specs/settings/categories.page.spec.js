@@ -2,7 +2,7 @@
 'use strict';
 
 var expect = require('../chai-helpers').expect;
-var CategoriesPage = require('../../pages/settings/categoriesPage');
+var CategoriesPage = require('../../pages/settings/categories.page');
 
 
 // Account Creation
@@ -17,18 +17,22 @@ describe('Categories Page', function() {
     
     })
 
+    it('Should go to the categories page', function() {
+
+        browser.getCurrentUrl().then(function(currentUrl) {
+            
+            expect(currentUrl).to.equal('http://localhost:3000/settings/categories');
+        
+        })
+
+    })
+
     it('Should allow the creation of an category', function() {
         
         browser.waitForAngular();
-        
-        browser.getCurrentUrl().then(function(currentUrl) {
-
-            expect(currentUrl).to.equal('http://localhost:3000/settings/categories');
-            
-            // Given a category called "Shopping"
-            categoriesPage.createCategory('Shopping');
-
-        });
+    
+        // Given a category called "Shopping"
+        categoriesPage.createCategory('Shopping');
 
         // Then the categories page should show an account called "Shopping"
         categoriesPage.doesCategoryExist('Shopping').then(function(exists) {
