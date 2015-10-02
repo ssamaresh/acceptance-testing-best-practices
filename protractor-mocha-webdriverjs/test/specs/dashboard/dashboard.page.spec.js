@@ -1,3 +1,6 @@
+/* jshint node: true */
+/*jshint -W030 */
+
 'use strict';
 
 var expect = require('../chai-helpers').expect;
@@ -105,7 +108,9 @@ describe('Dashboard Page', function() {
 	});
 
 	it('should show a summary of transactions by category', function() {
-		
+
+			this.timeout(50000);
+
       // Expected category totals
       // | category         | payment |
       // | Auto & Transport |  90.00  |
@@ -116,8 +121,8 @@ describe('Dashboard Page', function() {
 	
 	      expect(numberOfCategories).to.equal(2);
 
-      })
+      });
   
   });
 
-})
+});

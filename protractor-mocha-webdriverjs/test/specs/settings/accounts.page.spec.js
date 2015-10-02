@@ -1,3 +1,5 @@
+/* jshint node: true */
+/*jshint -W030 */
 
 'use strict';
 
@@ -11,23 +13,29 @@ describe('Accounts Page', function() {
     var accountsPage;
 
     beforeEach(function() {
+            
+        this.timeout(50000);
         
         accountsPage = new AccountsPage();
         accountsPage.go();
     
-    })
+    });
 
     it('Should go to the accounts page', function() {
+
+        this.timeout(50000);
 
         browser.getCurrentUrl().then(function(currentUrl) {
             
             expect(currentUrl).to.equal('http://localhost:3000/settings/accounts');
         
-        })
+        });
 
-    })
+    });
 
     it('Should allow the creation of an account', function() {
+
+        this.timeout(50000);
         
         browser.waitForAngular();
                     
@@ -44,6 +52,8 @@ describe('Accounts Page', function() {
     });
 
     it('should allow changing the name of an account', function () {
+
+        this.timeout(50000);
 
         browser.waitForAngular();
 

@@ -1,3 +1,4 @@
+/* jshint node: true */
 
 'use strict';
 
@@ -25,7 +26,7 @@ TransactionsPage.prototype.createTransaction = function(transaction) {
 	var amountElement = (transaction.payment.length > 0) ? 'payment' : 'deposit';
 	var txn_date = transaction.date.replace(/\//g, '');  // remove slashes
 
-	browser.get(this.url, 20000);
+	browser.get(this.url, 5000);
 	element.all(by.cssContainingText('[ui-sref="accounts.detail({accountId: a.id})"]', transaction.account)).click();
 	browser.wait(this.EC.elementToBeClickable(this.addTransactionBtn, 5000));
 	this.addTransactionBtn.click();
@@ -55,7 +56,6 @@ TransactionsPage.prototype.changePaymentAmount = function(account, payee, newAmo
 
 TransactionsPage.prototype.getTransactionForPayee = function(account, payee) {
 
-	var transactionRow;
 	var result = {};
 	var tasks = [];
 	var transaction = element(by.cssContainingText('.transactions-columnPayee', payee));

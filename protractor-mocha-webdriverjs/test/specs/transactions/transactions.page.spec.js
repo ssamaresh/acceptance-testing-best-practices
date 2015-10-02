@@ -1,3 +1,6 @@
+/* jshint node: true */
+/*jshint -W030 */
+
 'use strict';
 
 var expect = require('../chai-helpers').expect;
@@ -120,11 +123,8 @@ describe('Transactions Page', function() {
             
             expect(exists).to.be.false;
 
-        })
+        });
 
     });
 
-
-
 });
-

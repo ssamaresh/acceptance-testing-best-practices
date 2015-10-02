@@ -1,3 +1,6 @@
+/* jshint node: true */
+/*jshint -W030 */
+
 'use strict';
 
 var expect = require('../chai-helpers').expect;
@@ -11,22 +14,28 @@ describe('Settings Page', function() {
 
     beforeEach(function() {
         
+        this.timeout(50000);
+        
         settingsPage = new SettingsPage();
         settingsPage.go();
     
-    })
+    });
 
     it('should be on the settings page', function() {
+
+        this.timeout(50000);
 
         browser.getCurrentUrl().then(function(currentUrl) {
             
             expect(currentUrl).to.equal('http://localhost:3000/settings');
         
-        })
+        });
 
-    })
+    });
 
     it('Should have a list of accounts', function() {
+
+        this.timeout(50000);
 
         settingsPage.getAccountsTab();
 
@@ -36,10 +45,11 @@ describe('Settings Page', function() {
 
         });
             
-
-    })
+    });
 
     it('Should have a list of categories', function() {
+
+        this.timeout(50000);
 
         settingsPage.getCategoriesTab();
 
@@ -48,6 +58,7 @@ describe('Settings Page', function() {
             expect(isPresent).to.be.true;
 
         });
-    })
+    
+    });
 
 });

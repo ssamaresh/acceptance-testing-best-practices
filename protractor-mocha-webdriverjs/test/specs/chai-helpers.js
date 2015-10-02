@@ -1,4 +1,6 @@
-'use strict';
+/* jshint node: true */
+
+"use strict";
 
 var chai = require('chai');
 
