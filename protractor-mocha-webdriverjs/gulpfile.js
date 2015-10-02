@@ -3,8 +3,6 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var protractor = require('gulp-protractor').protractor;
 
-
-// argv.suite
 var argv = require('yargs').argv;
 
 gulp.task('jshint', function() {
@@ -14,10 +12,10 @@ gulp.task('jshint', function() {
 });
 
 function runProtractor(done) {
+
+	// args - all, settings, transactions,dashboard 
 	
-	var suite = argv.suite;
-	var args = suite.length > 0 ? suite : 'all'; 
-	console.log('suite', suite);
+	var args = argv.suite;
 
 	return gulp.src('./test/**/*.js')
 		.pipe(protractor({
