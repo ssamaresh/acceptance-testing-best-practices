@@ -40,7 +40,10 @@ $ java -jar /usr/local/bin/selenium-server-standalone-2.47.1.jar
 # --- In command shell 4 ---
 $ cd <this-directory>
 $ npm install
-$ ./node_modules/protractor/bin/protractor test/config.js
+
+#--- <suitname> - all, settings, transactions, dashboard
+
+$ gulp test --suite <suitname>
 ```
 
 By default, the tests run in Chrome. To switch to another browser, change the `browserName` in `conf.js`.
