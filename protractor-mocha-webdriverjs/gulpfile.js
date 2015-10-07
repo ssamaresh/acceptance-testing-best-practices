@@ -18,7 +18,7 @@ function runProtractor(done) {
 	var args = argv.suite;
 
 	return gulp.src('./test/**/*.js')
-		.pipe(protractor({
+		.pipe(protractor({	
 			configFile: './test/config.js',
 			args: ['--suite', args]
 		}))
