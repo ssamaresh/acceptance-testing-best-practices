@@ -1,0 +1,15 @@
+{
+  "predef": [
+    "protractor",
+    "browser",
+    "by",
+    "element",
+    "it",
+    "describe",
+    "beforeEach",
+    "afterEach",
+    "before",
+    "after",
+    "Promise"
+   ]
+}
